@@ -6,6 +6,8 @@
 
 一天，我在百度贴吧偶然发现了发帖参数中有个叫`_BSK`的东西
 
+![](https://github.com/8qwe24657913/Analyze_baidu_BSK/raw/master/%E5%8E%9F%E5%A7%8B/post_param.png)
+
 这又臭又长的内容让人心生怀疑，怕不是百度又在追踪用户？
 
 ## 1. `BSK`亮相
@@ -15,6 +17,8 @@
 退而求其次，找到了引入`BSK`的地方：https://tb1.bdstatic.com/tb/_/poster/bsk_service_c6680a4.js
 
 > 注：百度服务器用了文件合并，而我在本文中写的是单独的js地址，且本文提到的js均已上传到github，后文中不再赘述
+
+![](https://github.com/8qwe24657913/Analyze_baidu_BSK/raw/master/%E5%8E%9F%E5%A7%8B/devtools.png)
 
 可以看到，这个`bsk_service_c6680a4.js`引入了另一个脚本： https://fex.bdstatic.com/bsk/??dknsaZmLdyKfEeIVbKxn_dcc70f7.js,omzVouOACqkNljzDbdOB_af501e9.js
 
@@ -53,9 +57,13 @@
 
 事实上，`data.js`传入的巨大n维数组在转成AST的过程中，需要经过一次xor解密
 > **数学知识复习：**
+
 > a ^ b == b ^ a
+
 > (a ^ b) ^ c == a ^ (b ^ c)
+
 > a ^ 0 == a
+
 > a ^ a == 0
 
 而xor加/解密，便是在加密时把数据与`key`异或，解密时再做一次，便还原了数据
