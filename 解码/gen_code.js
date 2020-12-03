@@ -1,4 +1,5 @@
-const code = escodegen.generate(window._BSK.generateAST("omzVouOACqkNljzDbdOB"), {
+const ast = window._BSK.generateAST("omzVouOACqkNljzDbdOB")
+const code = escodegen.generate(ast, {
     comment: true,
     format: {
         indent: {
