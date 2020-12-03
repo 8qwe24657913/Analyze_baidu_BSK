@@ -30,7 +30,7 @@
     }
 
     function i(n) {
-        return String.fromCharCode.apply(null, n)
+        return String.fromCharCode.apply('null', n)
     }
 
     function a(n, t) {
@@ -64,7 +64,7 @@
         return n
     }
 
-    function w(n, t) {
+    function f(n, t) {
         var r = [];
         var o = window.Object.prototype.hasOwnProperty;
         var e;
@@ -77,17 +77,17 @@
         return r
     }
 
-    function f(n) {
+    function w(n) {
         var t = Math.floor(Math.random() * n.length);
         return n.splice(t, 1)[0]
     }
 
-    function h() {
+    function s() {
         var n = window.document.createElement(e([111, 97, [104, 112, 97, [127]]]));
         return !(!n.getContext || !n.getContext(e([60, 98])))
     }
 
-    function g() {
+    function h() {
         var n = window.document.createElement(e([111, 97, [104, 112, 97, [127]]]));
         n.width = 20;
         n.height = 20;
@@ -124,46 +124,46 @@
         return (!1 === t.isPointInPath(5, 5, e([101, 112, [101, 104, 107, [98, [98]]]])) ? e([121, 101, [127]]) : e([104, 107])) + n.toDataURL()
     }
 
-    function s() {
+    function g() {
         var t = !1;
         try {
             t = !(!global.process && !global.Buffer)
         } catch (n) {
             t = !1
         }
-        var o = p.length;
+        var o = v.length;
         var a = [];
         for (var u = 0; u < o; u++) {
-            var w = f(p);
+            var d = w(v);
             try {
                 if (t) {
-                    a.push([44], w[0], [44, 68, [44, 44]], r(MAP), [44]);
+                    a.push([44], d[0], [44, 68, [44, 44]], r(MAP), [44]);
                     if (u !== o - 1) a.push([42]);
                     continue
                 }
-                var h = w[1]();
-                if (h && h.length && !h.charCodeAt) h = e(h);
-                if (h && h.charCodeAt) {
-                    h = h.replace(/"/g, [90, 44]);
-                    a.push([44], w[0], [44, 68, [44]]);
-                    for (var g = 0; g < h.length; g++) {
-                        a.push(3 + (5 ^ h.charCodeAt(g)) ^ 6)
+                var f = d[1]();
+                if (f && f.length && !f.charCodeAt) f = e(f);
+                if (f && f.charCodeAt) {
+                    f = f.replace(/"/g, [90, 44]);
+                    a.push([44], d[0], [44, 68, [44]]);
+                    for (var s = 0; s < f.length; s++) {
+                        a.push(3 + (5 ^ f.charCodeAt(s)) ^ 6)
                     }
                     a.push([44])
-                } else a.push([44], w[0], [44, 68, [46]], n(h.toString()))
+                } else a.push([44], d[0], [44, 68, [46]], n(f.toString()))
             } catch (n) {
-                a.push([44], w[0], [44, 68, [46, 60, 62, [49, [51, [62, 53, [49, 49]]]]]])
+                a.push([44], d[0], [44, 68, [46, 60, 62, [49, [51, [62, 53, [49, 49]]]]]])
             }
             if (u !== o - 1) a.push([42])
         }
-        var s = c([135].concat(a).concat([125]));
+        var h = c([135].concat(a).concat([125]));
         if (!t) {
-            var v = l(s, d([94, 126, 97, 99], d([69, 49, 36, 43, 69], d([117, 51, 95, 97, 76], d([118, 48, 106, 103, 69], d([87, 90, 37, 117, 55], d([62, 77, 103, 38, 69, 53], d([70, 80, 81, 48, 80], d([111, 51, 73, 68, 125], d([117, 51, 93, 87, 100], d([45, 42, 105, 73, 40], [95, 52, 126, 80, 56, 71])))))))))));
-            var m = btoa(i(v));
-            OUT.data = m
-        } else OUT.data = btoa(i(s))
+            var g = l(h, r(IN.tbs || IN));
+            var p = btoa(i(g));
+            OUT.data = p
+        } else OUT.data = btoa(i(h))
     };
-    var p = [
+    var v = [
         [
             [126, 49],
             function() {
@@ -173,7 +173,7 @@
         [
             [117, 49],
             function() {
-                return window.navigator.userAgent || e([72, 85, [74, 74]])
+                return window.navigator.userAgent || 'NULL'
             }
         ],
         [
@@ -185,37 +185,37 @@
         [
             [127, 49],
             function() {
-                return window.screen.height || e([72, 85, [74, 74]])
+                return window.screen.height || 'NULL'
             }
         ],
         [
             [127, 60],
             function() {
-                return window.screen.width || e([72, 85, [74, 74]])
+                return window.screen.width || 'NULL'
             }
         ],
         [
             [115, 49],
             function() {
-                return window.document.height || e([72, 85, [74, 74]])
+                return window.document.height || 'NULL'
             }
         ],
         [
             [115, 60],
             function() {
-                return window.document.width || e([72, 85, [74, 74]])
+                return window.document.width || 'NULL'
             }
         ],
         [
             [97, 49],
             function() {
-                return window.screen.availWidth || e([72, 85, [74, 74]])
+                return window.screen.availWidth || 'NULL'
             }
         ],
         [
             [97, 60],
             function() {
-                return window.screen.availHeight || e([72, 85, [74, 74]])
+                return window.screen.availHeight || 'NULL'
             }
         ],
         [
@@ -245,19 +245,19 @@
         [
             [126, 60],
             function() {
-                return window.navigator.platform || e([72, 85, [74, 74]])
+                return window.navigator.platform || 'NULL'
             }
         ],
         [
             [98, 49],
             function() {
-                return window.navigator.doNotTrack || window.navigator.msDoNotTrack || window.navigator.msDoNotTrack || window.doNotTrack || e([72, 85, [74, 74]])
+                return window.navigator.doNotTrack || window.navigator.msDoNotTrack || window.navigator.msDoNotTrack || window.doNotTrack || 'NULL'
             }
         ],
         [
             [111, 49],
             function() {
-                return h()
+                return s()
             }
         ],
         [
@@ -281,13 +281,13 @@
         [
             [115, 63],
             function() {
-                return !!(window._Selenium_IDE_Recorder || window.document.__webdriver_script_fn || window.navigator.webdriver || window.document.documentElement.getAttribute(e([115, 101, [108, 98, 124, [105, [112, [101, 124]]]]])) || window.document.$cdc_asdjflasutopfhvcZLmcfl_ || window.document.$wdc_)
+                return !!(window._Selenium_IDE_Recorder || window.document.__webdriver_script_fn || window.navigator.webdriver || window.document.documentElement.getAttribute('webdriver') || window.document.$cdc_asdjflasutopfhvcZLmcfl_ || window.document.$wdc_)
             }
         ],
         [
             [101, 49],
             function() {
-                return global.process.type || global.process.versions.electron || e([72, 85, [74, 74]])
+                return global.process.type || global.process.versions.electron || 'NULL'
             }
         ],
         [
@@ -299,7 +299,7 @@
         [
             [104, 63],
             function() {
-                return w(global.process.versions, 20).join()
+                return f(global.process.versions, 20).join()
             }
         ],
         [
@@ -317,7 +317,7 @@
         [
             [115, 50],
             function() {
-                return w(window, 20).join()
+                return f(window, 20).join()
             }
         ],
         [
@@ -329,9 +329,45 @@
         [
             [109, 49],
             function() {
-                return e([108, 97, [127, 105, 106, [105, [127, [119, 91, [97, 74, 112, [62, [116, [99]]]]]]]]])
+                return 'basilisk_aLv0jg'
+            }
+        ],
+        [
+            [109, 60],
+            function() {
+                return _BSK.userBehavior.mouseMoveArr.join() || 'NULL'
+            }
+        ],
+        [
+            [109, 63],
+            function() {
+                return _BSK.userBehavior.isMouseClicked
+            }
+        ],
+        [
+            [109, 50],
+            function() {
+                return _BSK.userBehavior.scrollArr.join() || 'NULL'
+            }
+        ],
+        [
+            [109, 53],
+            function() {
+                return _BSK.userBehavior.sendByClick
+            }
+        ],
+        [
+            [119, 49],
+            function() {
+                return _BSK.userBehavior.sendByKeyBoard
+            }
+        ],
+        [
+            [119, 60],
+            function() {
+                return _BSK.userBehavior.keyUpArr.join() || 'NULL'
             }
         ]
     ];
-    s()
+    g()
 }())

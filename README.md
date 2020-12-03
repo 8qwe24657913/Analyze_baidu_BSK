@@ -24,6 +24,12 @@
 
 而后者又可以拆成`dknsaZmLdyKfEeIVbKxn_dcc70f7.js`和`omzVouOACqkNljzDbdOB_af501e9.js`两部分，为了简洁，我们姑且称它们为`1.js`和`2.js`
 
+>更新！as of 2020-Dec, 百度已经用https://tb1.bdstatic.com/??tb/static-common/lib/tb_lib_384d873.js 去替代以上两个js 文件，其中1.js虚拟机不变，变化的是加密的ast矩阵2.js
+>
+>其中利用给_BSK加入了userBehavior 模块（鼠标轨迹之类的）并会在最后加入到返回的bsk中
+
+
+
 如果你打开`2.js`，你会发现这个js只干了一件事，传出一个巨大的n维数组，很明显是提供数据的，所以我们把它改个名字，`data.js`
 
 而打开`1.js`，情况就复杂得多了，它调用`Function`，构造了一个巨大的`IIFE`，而`IIFE`中虽然骚操作很多，却没有`eval`或是`Function`这种代码生成，需要进一步分析

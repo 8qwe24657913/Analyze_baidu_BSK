@@ -37,6 +37,10 @@
         //function c(d, e) {
         //return e ? c(d ^ e, (d & e) << 1) : d
         //}(8, 2)
+
+special code this.w
+specialcodestack this.D
+
     };*/
     CodeRunner.prototype.jmpIntoScope = function (scope, specialCode) {
         undefined === specialCode && (specialCode = -1);
@@ -59,7 +63,7 @@
         this.parseStatement(statement[1]);
         this.popStackValue() ? this.parseStatement(statement[2]) : this.parseStatement(statement[3])
     };
-    CodeRunner.prototype.declareFunc = function (statements) {
+    CodeRunner.prototype.declareFunc = function (statements) {// b.prototype.aa = function(a) {
         var that = this;
         this.scope.input[this.getStr(statements[1])] = new FakeFunc(this, this.scope, map(statements[2], function (statement) {
             return that.getStr(statement[1])
@@ -118,7 +122,7 @@
     CodeRunner.prototype.pushStackValue = function (value) {
         this.scope.pushValue(value)
     };
-    CodeRunner.prototype.runCode = function (code) {
+    CodeRunner.prototype.runCode = function (code) { //b.prototype.P = function(a) {
         var that = this;
         try {
             each(code, function (statement) {
@@ -138,7 +142,7 @@
             return that.getStr(statement[1])
         }), statements[2], statements[3]))
     };
-    CodeRunner.prototype.runFunc = function (statements) {
+    CodeRunner.prototype.runFunc = function (statements) { //b.prototype.J = function(a) {
         var that = this;
         each(statements[2], function (statement) {
             return that.parseStatement(statement)
@@ -187,7 +191,7 @@
         this.scope = this.scopes[this.scopes.length - 1];
         this.specialCode = this.specialCodeStack[this.specialCodeStack.length - 1]
     };
-    CodeRunner.prototype.popStackValue = function () {
+    CodeRunner.prototype.popStackValue = function () { //O
         return this.scope.popValue()
     };
     CodeRunner.prototype.andOr = function (statement) {
@@ -204,7 +208,7 @@
     CodeRunner.prototype.literalValue = function () {
         return [this.groupingOperator, this.declare, this.declareFunc, this.literal, this.getDefinedValue, this.binaryOperation, this.funcExpression]
     };
-    CodeRunner.prototype.createArray = function (statements) {
+    CodeRunner.prototype.createArray = function (statements) {  
         var that = this;
         each(statements[1], function (statement) {
             return that.parseStatement(statement)
@@ -254,11 +258,11 @@
     CodeRunner.prototype.getParseStatementArr = function () {
         return [this.forStatement, this.ifElse, this.breakStatement, this.continueStatement, this.throwStatement, this.tryCatchFinally, this.parseExpression]
     };
-    CodeRunner.prototype.parseStatement = function (statement, isWhat) {
+    CodeRunner.prototype.parseStatement = function (statement, isWhat) { //b.prototype.b = function(a, c) {
         undefined === isWhat && (isWhat = false);
         if (!this.scope.returnSign && !this.scope.breakSign && !this.scope.continueSign) {
             //var funcs = modify_concat(this.qa(), modify_concat(this.ra(), modify_concat(this.sa(), [this.ia, this.fa, this.unaryOperation, this.W, this.U, this.Z]))),
-            //    b = a[0] - 3 * this.va() ^ this.w;
+            //    b = a[0] - 3 * this.va() ^ this.w;  this.va() =10
             var funcs = [].concat(this.literalValue(), this.ra(), this.getParseStatementArr(), [this.returnStatement, this.andOr, this.unaryOperation, this.conditionalOperator, this.codeBlock, this.forIn]),
                 key = statement[0] - 30 ^ this.specialCode;
             if (funcs[key]) funcs[key].apply(this, [statement, isWhat]);
@@ -366,7 +370,7 @@
             this.key = key
         };
         this.continueSign = this.breakSign = this.returnSign = false;
-        this.valueStack = [];
+        this.valueStack = []; //H
         this.input = input || {
                 btoa: function (a, d, b, k, h) {
                     undefined === d && (d = MAP.slice(0, 64));
@@ -379,18 +383,18 @@
     Scope.prototype.popValue = function () {
         return this.valueStack.pop()
     };
-    Scope.prototype.pushValue = function (value) {
+    Scope.prototype.pushValue = function (value) { //b.prototype.xa = function(a) {
         this.valueStack.push(value)
     };
     Scope.prototype.getDataContainer = function (parent, key) {
         return new this.DataContainer(parent, key)
     };
-    Scope.prototype.dataGetter = function (key) {
+    Scope.prototype.dataGetter = function (key) {//b.prototype.G = function(a) {
         if (this.input.hasOwnProperty(key)) return new this.DataContainer(this.input, key);
         if (this.upperScope) return this.upperScope.dataGetter(key);
         if (global[key]) return new this.DataContainer(global, key);
     };
-    function FakeFunc(codeRunner, scope, args, codes, specialCode) {
+    function FakeFunc(codeRunner, scope, args, codes, specialCode) { //function b(a, c, d, b, k) 
         this.codeRunner = codeRunner;
         this.codes = codes;
         this.upperScope = scope;
